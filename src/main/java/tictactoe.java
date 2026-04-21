@@ -18,10 +18,26 @@ public class tictactoe {
 
         int slot = getUserSlot();
         System.out.println("User slot=" + slot);
+        System.out.println(getRowNo(slot));
+        System.out.println(getColumnNo(slot));
     }
+
+    static int getRowNo(int x){
+        if (x %3 == 1)return 1;
+        if (x %3 == 2)return 2;
+        return 3;
+
+    }
+
+    static int getColumnNo(int x){
+        if (x /3 == 1)return 2;
+        if (x /3 == 2)return 3;
+        return 1;
+    }
+
     static int getUserSlot(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your slot 1-92");
+        System.out.println("Enter your slot 1-9");
         return sc.nextInt();
 
     }
@@ -69,3 +85,4 @@ public class tictactoe {
         System.out.println("xxxxxxxxxxxxxxxxxxxxxx");
     }
 }
+
