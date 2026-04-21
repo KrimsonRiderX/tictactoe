@@ -20,6 +20,12 @@ public class tictactoe {
         System.out.println("User slot=" + slot);
         System.out.println(getRowNo(slot));
         System.out.println(getColumnNo(slot));
+        System.out.println("true if valid -" +isValidMove(slot));
+    }
+
+    static boolean isValidMove(int x){
+        if (x == x)return true;
+        return false;
     }
 
     static int getRowNo(int x){
