@@ -1,9 +1,74 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class tictactoe {
+
+    static boolean isHumanTurn;
+    static char humanSymbol;
+    static char computerSybmol;
+
+
     static char[][] board = new char[3][3];
 
     public static void main (String[] Args){
+        tossAndAssignSymobols();
+        displayTossResults();
         initializeboard();
         printboard();
+
+        int slot = getUserSlot();
+        System.out.println("User slot=" + slot);
+        System.out.println(getRowNo(slot));
+        System.out.println(getColumnNo(slot));
+        System.out.println("true if valid -" +isValidMove(slot));
+    }
+
+    static boolean isValidMove(int x){
+        if (x == x)return true;
+        return false;
+    }
+
+    static int getRowNo(int x){
+        if (x %3 == 1)return 1;
+        if (x %3 == 2)return 2;
+        return 3;
+
+    }
+
+    static int getColumnNo(int x){
+        if (x /3 == 1)return 2;
+        if (x /3 == 2)return 3;
+        return 1;
+    }
+
+    static int getUserSlot(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your slot 1-9");
+        return sc.nextInt();
+
+    }
+
+    static void tossAndAssignSymobols(){
+        Random rand = new Random();
+
+        if (rand.nextInt()%2 == 0){
+            humanSymbol = 'X';
+            computerSybmol = 'O';
+        }
+        else {
+            humanSymbol = 'O';
+            computerSybmol = 'X';
+        }
+    }
+
+    static void displayTossResults(){
+
+        if (humanSymbol == 'X'){
+            System.out.println("you won the toss move first");
+        }
+        else {
+            System.out.println("you lost the toss computer move first");
+        }
     }
 
     static void initializeboard(){
@@ -26,3 +91,4 @@ public class tictactoe {
         System.out.println("xxxxxxxxxxxxxxxxxxxxxx");
     }
 }
+
