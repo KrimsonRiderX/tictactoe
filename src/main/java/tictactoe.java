@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class tictactoe {
 
@@ -14,6 +15,15 @@ public class tictactoe {
         displayTossResults();
         initializeboard();
         printboard();
+
+        int slot = getUserSlot();
+        System.out.println("User slot=" + slot);
+    }
+    static int getUserSlot(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your slot 1-92");
+        return sc.nextInt();
+
     }
 
     static void tossAndAssignSymobols(){
