@@ -152,4 +152,5 @@ public class tictactoe {
             if (r < 2) System.out.println("---+---+---");
         }
     }
+
 }
